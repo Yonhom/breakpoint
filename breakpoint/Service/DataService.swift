@@ -43,6 +43,7 @@ class DataService {
     
     func createDBUser(uid: String, userData: Dictionary<String, Any>) {
         // add user data to 'users' table with a unique identifier
+        // when you create a user with firebase auth, a user uid is created for you
         REF_USERS.child(uid).updateChildValues(userData)
     }
 }
