@@ -13,6 +13,7 @@
 		52505E2B1F58E1C800B1245C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52505E291F58E1C800B1245C /* Main.storyboard */; };
 		52505E2D1F58E1C800B1245C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52505E2C1F58E1C800B1245C /* Assets.xcassets */; };
 		52505E301F58E1C800B1245C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52505E2E1F58E1C800B1245C /* LaunchScreen.storyboard */; };
+		52C76A4D1F58EDC60093DCC2 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C76A4C1F58EDC60093DCC2 /* DataService.swift */; };
 		FE3B0D7392128E494C3EAE50 /* Pods_breakpoint.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B37274CEA6952A4EF49E96D9 /* Pods_breakpoint.framework */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +28,7 @@
 		52505E2F1F58E1C800B1245C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		52505E311F58E1C800B1245C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		52505E3C1F58E41200B1245C /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		52C76A4C1F58EDC60093DCC2 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		5D5654DC3111F72B16F43242 /* Pods-breakpoint.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-breakpoint.debug.xcconfig"; path = "Pods/Target Support Files/Pods-breakpoint/Pods-breakpoint.debug.xcconfig"; sourceTree = "<group>"; };
 		B37274CEA6952A4EF49E96D9 /* Pods_breakpoint.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_breakpoint.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -121,6 +123,7 @@
 		52505E3B1F58E20800B1245C /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				52C76A4C1F58EDC60093DCC2 /* DataService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -259,6 +262,7 @@
 				52505E281F58E1C800B1245C /* SecondViewController.swift in Sources */,
 				52505E241F58E1C800B1245C /* AppDelegate.swift in Sources */,
 				52505E261F58E1C800B1245C /* FirstViewController.swift in Sources */,
+				52C76A4D1F58EDC60093DCC2 /* DataService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
