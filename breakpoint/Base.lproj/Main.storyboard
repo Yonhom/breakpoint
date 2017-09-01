@@ -143,7 +143,7 @@
         <!--AuthVC-->
         <scene sceneID="5FE-NT-J14">
             <objects>
-                <viewController id="30A-jF-9wI" customClass="AuthVC" customModule="breakpoint" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AuthVC" id="30A-jF-9wI" customClass="AuthVC" customModule="breakpoint" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="x9K-bs-C6i">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -204,6 +204,9 @@
                                                 <state key="normal" title="Login With Email">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <segue destination="93t-re-7fA" kind="show" id="VTx-F9-kBb"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -248,6 +251,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uMf-3h-qLd">
                                 <rect key="frame" x="373" y="40" width="21" height="22"/>
                                 <state key="normal" image="close"/>
+                                <connections>
+                                    <action selector="closePressed:" destination="93t-re-7fA" eventType="touchUpInside" id="h8x-zv-cqn"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="YVz-yP-rlG">
                                 <rect key="frame" x="60" y="120" width="294" height="266"/>
@@ -272,13 +278,33 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wrM-fw-020">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WKP-WT-1bm">
                                         <rect key="frame" x="0.0" y="214.66666666666669" width="294" height="51.333333333333314"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="22"/>
-                                        <state key="normal" title="Login In">
-                                            <color key="titleColor" red="0.23529411759999999" green="0.62352941179999999" blue="0.66666666669999997" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                    </button>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wrM-fw-020">
+                                                <rect key="frame" x="0.0" y="0.0" width="294" height="51.333333333333314"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="22"/>
+                                                <state key="normal" title="Login In">
+                                                    <color key="titleColor" red="0.23529411759999999" green="0.62352941179999999" blue="0.66666666669999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="loginPressed:" destination="93t-re-7fA" eventType="touchUpInside" id="Zdd-ph-8Nz"/>
+                                                </connections>
+                                            </button>
+                                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Z0V-tY-YbC">
+                                                <rect key="frame" x="54" y="8" width="37" height="37"/>
+                                            </activityIndicatorView>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.19215686274509802" green="0.20784313725490194" blue="0.24705882352941178" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="wrM-fw-020" firstAttribute="leading" secondItem="Z0V-tY-YbC" secondAttribute="trailing" constant="-91" id="Gn1-6h-LjC"/>
+                                            <constraint firstItem="wrM-fw-020" firstAttribute="leading" secondItem="WKP-WT-1bm" secondAttribute="leading" id="W7S-FP-3DZ"/>
+                                            <constraint firstAttribute="bottom" secondItem="wrM-fw-020" secondAttribute="bottom" id="Xd7-4Q-IQX"/>
+                                            <constraint firstItem="Z0V-tY-YbC" firstAttribute="centerY" secondItem="wrM-fw-020" secondAttribute="centerY" id="Y7f-x5-ir9"/>
+                                            <constraint firstItem="wrM-fw-020" firstAttribute="top" secondItem="WKP-WT-1bm" secondAttribute="top" id="c8N-tM-9oM"/>
+                                            <constraint firstAttribute="trailing" secondItem="wrM-fw-020" secondAttribute="trailing" id="eP6-0k-jld"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -293,6 +319,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="O1t-R7-4c2"/>
                     </view>
+                    <connections>
+                        <outlet property="emailField" destination="f3D-ec-TOg" id="h1U-GU-EJC"/>
+                        <outlet property="loginBtn" destination="wrM-fw-020" id="tup-6B-fy0"/>
+                        <outlet property="passwordField" destination="QrT-qK-fKr" id="LzM-37-nd4"/>
+                        <outlet property="progressIndicator" destination="Z0V-tY-YbC" id="ycz-8W-So7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FSP-WX-htk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
