@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		522E77DB1F59225C009AAACC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522E77DA1F59225C009AAACC /* AppDelegate.swift */; };
 		522E77DD1F5923EB009AAACC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 522E77DC1F5923EA009AAACC /* GoogleService-Info.plist */; };
-		52505E261F58E1C800B1245C /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52505E251F58E1C800B1245C /* FirstViewController.swift */; };
-		52505E281F58E1C800B1245C /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52505E271F58E1C800B1245C /* SecondViewController.swift */; };
+		52505E261F58E1C800B1245C /* FeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52505E251F58E1C800B1245C /* FeedVC.swift */; };
+		52505E281F58E1C800B1245C /* GroupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52505E271F58E1C800B1245C /* GroupVC.swift */; };
 		52505E2B1F58E1C800B1245C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52505E291F58E1C800B1245C /* Main.storyboard */; };
 		52505E2D1F58E1C800B1245C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52505E2C1F58E1C800B1245C /* Assets.xcassets */; };
 		52505E301F58E1C800B1245C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52505E2E1F58E1C800B1245C /* LaunchScreen.storyboard */; };
@@ -27,8 +27,8 @@
 		522E77DA1F59225C009AAACC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		522E77DC1F5923EA009AAACC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		52505E201F58E1C800B1245C /* breakpoint.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = breakpoint.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		52505E251F58E1C800B1245C /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		52505E271F58E1C800B1245C /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		52505E251F58E1C800B1245C /* FeedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedVC.swift; sourceTree = "<group>"; };
+		52505E271F58E1C800B1245C /* GroupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupVC.swift; sourceTree = "<group>"; };
 		52505E2A1F58E1C800B1245C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		52505E2C1F58E1C800B1245C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		52505E2F1F58E1C800B1245C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -100,8 +100,8 @@
 		52505E371F58E1DD00B1245C /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				52505E251F58E1C800B1245C /* FirstViewController.swift */,
-				52505E271F58E1C800B1245C /* SecondViewController.swift */,
+				52505E251F58E1C800B1245C /* FeedVC.swift */,
+				52505E271F58E1C800B1245C /* GroupVC.swift */,
 				52C76A4E1F591B6A0093DCC2 /* AuthVC.swift */,
 				52C76A501F591B7E0093DCC2 /* LoginVC.swift */,
 			);
@@ -283,10 +283,10 @@
 			files = (
 				522E77DB1F59225C009AAACC /* AppDelegate.swift in Sources */,
 				52C76A4F1F591B6A0093DCC2 /* AuthVC.swift in Sources */,
-				52505E281F58E1C800B1245C /* SecondViewController.swift in Sources */,
+				52505E281F58E1C800B1245C /* GroupVC.swift in Sources */,
 				52C76A511F591B7E0093DCC2 /* LoginVC.swift in Sources */,
 				52C76A551F591BF60093DCC2 /* ShadowView.swift in Sources */,
-				52505E261F58E1C800B1245C /* FirstViewController.swift in Sources */,
+				52505E261F58E1C800B1245C /* FeedVC.swift in Sources */,
 				52C76A4D1F58EDC60093DCC2 /* DataService.swift in Sources */,
 				52C76A531F591BDA0093DCC2 /* LoginField.swift in Sources */,
 			);
