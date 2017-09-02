@@ -38,6 +38,7 @@ class PostVC: UIViewController {
                 self.sendBtn.isEnabled = true
                 if status {
                     print("posting message successeded!")
+                    self.dismiss(animated: true, completion: nil)
                 } else {
                     print("posting message failed!")
                 }

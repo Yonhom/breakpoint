@@ -10,6 +10,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="Avenir.ttc">
+            <string>Avenir-Heavy</string>
+        </array>
         <array key="CourierNewBold.ttf">
             <string>CourierNewPS-BoldMT</string>
         </array>
@@ -53,13 +56,43 @@
                                 <rect key="frame" x="0.0" y="64" width="414" height="623"/>
                                 <color key="backgroundColor" red="0.20392156862745098" green="0.20392156862745098" blue="0.24705882352941178" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="100" id="AY4-Jl-Z0P">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="FeedCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="FeedCell" rowHeight="100" id="AY4-Jl-Z0P" customClass="FeedCell" customModule="breakpoint" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="AY4-Jl-Z0P" id="ceG-h6-qBP">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="99.666666666666671"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pJV-MW-5Ye">
+                                                    <rect key="frame" x="20" y="8" width="374" height="22"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="22" id="rNB-3V-PsD"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="20"/>
+                                                    <color key="textColor" red="0.23529411759999999" green="0.62352941179999999" blue="0.66666666669999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wbY-kq-i2B">
+                                                    <rect key="frame" x="20" y="38.000000000000007" width="374" height="53.666666666666679"/>
+                                                    <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="16"/>
+                                                    <color key="textColor" red="0.30127346220000001" green="0.66647677949999995" blue="0.41645165629999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="wbY-kq-i2B" secondAttribute="trailing" constant="20" id="CKh-s9-L5c"/>
+                                                <constraint firstItem="pJV-MW-5Ye" firstAttribute="leading" secondItem="ceG-h6-qBP" secondAttribute="leading" constant="20" id="EGq-2H-AVS"/>
+                                                <constraint firstItem="pJV-MW-5Ye" firstAttribute="top" secondItem="ceG-h6-qBP" secondAttribute="top" constant="8" id="XXm-g7-9TP"/>
+                                                <constraint firstItem="wbY-kq-i2B" firstAttribute="top" secondItem="pJV-MW-5Ye" secondAttribute="bottom" constant="8" id="eh2-Oi-ooG"/>
+                                                <constraint firstItem="wbY-kq-i2B" firstAttribute="leading" secondItem="ceG-h6-qBP" secondAttribute="leading" constant="20" id="lan-st-jAV"/>
+                                                <constraint firstAttribute="bottom" secondItem="wbY-kq-i2B" secondAttribute="bottom" constant="8" id="ppR-6o-vBh"/>
+                                                <constraint firstAttribute="trailing" secondItem="pJV-MW-5Ye" secondAttribute="trailing" constant="20" id="uNP-rZ-afA"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="message" destination="wbY-kq-i2B" id="HYd-rL-JZa"/>
+                                            <outlet property="username" destination="pJV-MW-5Ye" id="2Rd-IL-uoF"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -78,12 +111,13 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Feed" image="feed-tabIcon" id="acW-dT-cKf"/>
                     <connections>
+                        <outlet property="messageTable" destination="wfp-RX-XEc" id="KOf-kf-uWj"/>
                         <outlet property="navigationBar" destination="YM1-Oe-LEF" id="9FA-tP-H0h"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="750" y="-320"/>
+            <point key="canvasLocation" x="749.27536231884062" y="-320.38043478260875"/>
         </scene>
         <!--PostVC-->
         <scene sceneID="GUf-kB-K8N">
@@ -247,7 +281,7 @@
                                         <rect key="frame" x="0.0" y="28" width="414" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gwq-Nb-nmQ" id="8zA-Ac-W2J">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="49.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -316,7 +350,7 @@
                                         <rect key="frame" x="0.0" y="28" width="414" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zPJ-xA-4bx" id="SE4-Ze-t94">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="99.666666666666671"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>

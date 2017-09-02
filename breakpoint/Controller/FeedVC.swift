@@ -7,16 +7,44 @@
 //
 
 import UIKit
+import Firebase
 
 class FeedVC: UIViewController {
 
     @IBOutlet weak var navigationBar: UINavigationBar!
     
+    @IBOutlet weak var messageTable: UITableView!
+    
+    var feedMessages = [Message]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        messageTable.delegate = self
+        messageTable.dataSource = self
+        
+        DataService.instance.retrieveAllFeedMessages { (messages) in
+            self.feedMessages = messages
+            self.messageTable.reloadData()
+        }
+        
     }
 
+}
+
+extension FeedVC: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return feedMessages.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "FeedCell") as? FeedCell {
+            cell.configureCell(message: feedMessages[indexPath.row])
+            return cell
+        }
+        
+        return UITableViewCell()
+        
+    }
 }
 
 

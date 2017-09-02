@@ -71,6 +71,26 @@ class DataService {
         }
         
     }
+    
+    // retrieve all message from the feeds table
+    func retrieveAllFeedMessages(handler: @escaping (_ messages: [Message]) -> ()) {
+        var messageArray = [Message]()
+        REF_FEED.observeSingleEvent(of: .value) { (dataShot) in
+            guard let dataShot = dataShot.children.allObjects as? [DataSnapshot] else {
+                print("Message retrieving has occured a problem, please try again!")
+                return
+            }
+            
+            for message in dataShot {
+                let content = message.childSnapshot(forPath: "message").value as! String
+                let senderId = message.childSnapshot(forPath: "senderId").value as! String
+                let message = Message(content: content, senderId: senderId)
+                messageArray.append(message)
+            }
+            
+            handler(messageArray)
+        }
+    }
 }
 
 
