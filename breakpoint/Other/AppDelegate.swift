@@ -31,6 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             window?.rootViewController?.present(vc, animated: true, completion: nil)
         } else {
             print("Already has a user: \(Auth.auth().currentUser.debugDescription)")
+            
         }
         
         return true

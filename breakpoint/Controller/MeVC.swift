@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class MeVC: UIViewController {
 
@@ -18,6 +19,15 @@ class MeVC: UIViewController {
     }
 
     @IBAction func logoutPressed(_ sender: UIBarButtonItem) {
+        if Auth.auth().currentUser != nil {
+            do {
+                try Auth.auth().signOut()
+            } catch {
+                print("Signing out with a error: \(error.localizedDescription)")
+            }
+        } else {
+            print("already signed out!")
+        }
     }
     
 }
