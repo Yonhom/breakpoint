@@ -14,15 +14,8 @@ class GroupVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationBar.delegate = self
     }
     
 }
 
-// MARK: - the navigation bar delegate will be called
-extension GroupVC: UINavigationBarDelegate {
-    func position(for bar: UIBarPositioning) -> UIBarPosition {
-        return .topAttached
-    }
-}
 

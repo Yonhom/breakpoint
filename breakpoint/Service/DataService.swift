@@ -41,6 +41,9 @@ class DataService {
         return _REF_GROUPS
     }
     
+    /**
+     once a user is signed up, store it in the database
+     */
     func createDBUser(uid: String, userData: Dictionary<String, Any>) {
         // add user data to 'users' table with a unique identifier
         // when you create a user with firebase auth, a user uid is created for you

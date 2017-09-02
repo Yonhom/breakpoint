@@ -14,16 +14,9 @@ class FeedVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // navigation bar delegate for adjusting the bar's position and size
-        navigationBar.delegate = self
+
     }
 
 }
 
-extension FeedVC: UINavigationBarDelegate {
-    func position(for bar: UIBarPositioning) -> UIBarPosition {
-        return .topAttached
-    }
-}
 
