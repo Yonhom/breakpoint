@@ -15,6 +15,7 @@
 		52505E2B1F58E1C800B1245C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52505E291F58E1C800B1245C /* Main.storyboard */; };
 		52505E2D1F58E1C800B1245C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52505E2C1F58E1C800B1245C /* Assets.xcassets */; };
 		52505E301F58E1C800B1245C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52505E2E1F58E1C800B1245C /* LaunchScreen.storyboard */; };
+		5288148A1F5A9C8000561B51 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528814891F5A9C8000561B51 /* UIView+Ext.swift */; };
 		52C76A4D1F58EDC60093DCC2 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C76A4C1F58EDC60093DCC2 /* DataService.swift */; };
 		52C76A4F1F591B6A0093DCC2 /* AuthVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C76A4E1F591B6A0093DCC2 /* AuthVC.swift */; };
 		52C76A511F591B7E0093DCC2 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C76A501F591B7E0093DCC2 /* LoginVC.swift */; };
@@ -22,6 +23,7 @@
 		52C76A551F591BF60093DCC2 /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C76A541F591BF60093DCC2 /* ShadowView.swift */; };
 		52E0AEFD1F5A61D000ABA831 /* UINavigationBar+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E0AEFC1F5A61D000ABA831 /* UINavigationBar+Ext.swift */; };
 		52E0AEFF1F5A69C800ABA831 /* MeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E0AEFE1F5A69C800ABA831 /* MeVC.swift */; };
+		52E0AF011F5A7D5500ABA831 /* PostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E0AF001F5A7D5500ABA831 /* PostVC.swift */; };
 		FE3B0D7392128E494C3EAE50 /* Pods_breakpoint.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B37274CEA6952A4EF49E96D9 /* Pods_breakpoint.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +39,7 @@
 		52505E2C1F58E1C800B1245C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		52505E2F1F58E1C800B1245C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		52505E311F58E1C800B1245C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		528814891F5A9C8000561B51 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		52C76A4C1F58EDC60093DCC2 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		52C76A4E1F591B6A0093DCC2 /* AuthVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthVC.swift; sourceTree = "<group>"; };
 		52C76A501F591B7E0093DCC2 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
@@ -44,6 +47,7 @@
 		52C76A541F591BF60093DCC2 /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
 		52E0AEFC1F5A61D000ABA831 /* UINavigationBar+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationBar+Ext.swift"; sourceTree = "<group>"; };
 		52E0AEFE1F5A69C800ABA831 /* MeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeVC.swift; sourceTree = "<group>"; };
+		52E0AF001F5A7D5500ABA831 /* PostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostVC.swift; sourceTree = "<group>"; };
 		5D5654DC3111F72B16F43242 /* Pods-breakpoint.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-breakpoint.debug.xcconfig"; path = "Pods/Target Support Files/Pods-breakpoint/Pods-breakpoint.debug.xcconfig"; sourceTree = "<group>"; };
 		B37274CEA6952A4EF49E96D9 /* Pods_breakpoint.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_breakpoint.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -111,6 +115,7 @@
 				52C76A4E1F591B6A0093DCC2 /* AuthVC.swift */,
 				52C76A501F591B7E0093DCC2 /* LoginVC.swift */,
 				52E0AEFE1F5A69C800ABA831 /* MeVC.swift */,
+				52E0AF001F5A7D5500ABA831 /* PostVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -135,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				52E0AEFC1F5A61D000ABA831 /* UINavigationBar+Ext.swift */,
+				528814891F5A9C8000561B51 /* UIView+Ext.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -296,8 +302,10 @@
 				52505E281F58E1C800B1245C /* GroupVC.swift in Sources */,
 				522E77DF1F595661009AAACC /* AuthService.swift in Sources */,
 				52C76A511F591B7E0093DCC2 /* LoginVC.swift in Sources */,
+				52E0AF011F5A7D5500ABA831 /* PostVC.swift in Sources */,
 				52C76A551F591BF60093DCC2 /* ShadowView.swift in Sources */,
 				52E0AEFF1F5A69C800ABA831 /* MeVC.swift in Sources */,
+				5288148A1F5A9C8000561B51 /* UIView+Ext.swift in Sources */,
 				52505E261F58E1C800B1245C /* FeedVC.swift in Sources */,
 				52C76A4D1F58EDC60093DCC2 /* DataService.swift in Sources */,
 				52C76A531F591BDA0093DCC2 /* LoginField.swift in Sources */,

@@ -49,6 +49,28 @@ class DataService {
         // when you create a user with firebase auth, a user uid is created for you
         REF_USERS.child(uid).updateChildValues(userData)
     }
+    
+    /**
+     * post a message with a user id and groupkey(optional)
+     */
+    func postMessage(_ message: String, forUid uid: String, ofGroup groupKey: String?, completion: @escaping (_ status: Bool) -> ()) {
+        
+        if groupKey == nil {
+            // post the message in public
+            REF_FEED.childByAutoId().updateChildValues(["message": message, "senderId": uid], withCompletionBlock: { (error, dataRef) in
+                guard let error = error else {
+                    // update message successed, fire up the outer closure to notify success info
+                    completion(true)
+                    return
+                }
+                print("A error appeared posting message: \(error.localizedDescription)")
+                completion(false)
+            })
+        } else {
+            // post it into groups
+        }
+        
+    }
 }
 
 
