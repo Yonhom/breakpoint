@@ -34,11 +34,11 @@ class DataService {
     }
     
     var REF_GROUPS: DatabaseReference {
-        return _REF_FEED
+        return _REF_GROUPS
     }
     
     var REF_FEED: DatabaseReference {
-        return _REF_GROUPS
+        return _REF_FEED
     }
     
     /**
@@ -73,23 +73,51 @@ class DataService {
     }
     
     // retrieve all message from the feeds table
-    func retrieveAllFeedMessages(handler: @escaping (_ messages: [Message]) -> ()) {
-        var messageArray = [Message]()
-        REF_FEED.observeSingleEvent(of: .value) { (dataShot) in
+    func retrieveAllFeedMessages(handler: @escaping (_ messages: [Message]) -> ()) -> UInt {
+//        var messageArray = [Message]()
+        // this event is triggered only once
+//        REF_FEED.observeSingleEvent(of: .value) { (dataShot) in
+//            guard let dataShot = dataShot.children.allObjects as? [DataSnapshot] else {
+//                print("Message retrieving has occured a problem, please try again!")
+//                return
+//            }
+//
+//            for message in dataShot {
+//                let content = message.childSnapshot(forPath: "message").value as! String
+//                let senderId = message.childSnapshot(forPath: "senderId").value as! String
+//                let message = Message(content: content, senderId: senderId)
+//                messageArray.append(message)
+//            }
+//
+//            handler(messageArray)
+//        }
+        
+        /**
+         * this handle will be returned by oberve feed value changes, and
+         is used to remove the observer later
+         */
+        var feedBlockHandle: UInt!
+        
+        // this event is triggered as long as the observed data is changed
+        feedBlockHandle = REF_FEED.observe(.value) { (dataShot) in
             guard let dataShot = dataShot.children.allObjects as? [DataSnapshot] else {
                 print("Message retrieving has occured a problem, please try again!")
                 return
             }
             
+            var tempMessageArr = [Message]()
+            
             for message in dataShot {
                 let content = message.childSnapshot(forPath: "message").value as! String
                 let senderId = message.childSnapshot(forPath: "senderId").value as! String
                 let message = Message(content: content, senderId: senderId)
-                messageArray.append(message)
+                tempMessageArr.append(message)
             }
             
-            handler(messageArray)
+            handler(tempMessageArr)
         }
+        
+        return feedBlockHandle
     }
 }
 

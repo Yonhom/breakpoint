@@ -17,17 +17,24 @@ class FeedVC: UIViewController {
     
     var feedMessages = [Message]()
     
+    /**
+     handle for removing the observer from firebase
+     */
+    var feedObserverHandle: UInt!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         messageTable.delegate = self
         messageTable.dataSource = self
         
-        DataService.instance.retrieveAllFeedMessages { (messages) in
+        feedObserverHandle = DataService.instance.retrieveAllFeedMessages { (messages) in
             self.feedMessages = messages
             self.messageTable.reloadData()
         }
         
     }
+    
+    
 
 }
 
