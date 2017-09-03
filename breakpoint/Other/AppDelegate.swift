@@ -22,19 +22,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         // if there isnt a current user, go to the auth page
         if Auth.auth().currentUser == nil {
-            // get the authVC ref
-            let storyBoard = UIStoryboard(name: "Main", bundle: Bundle.main)
-            let vc = storyBoard.instantiateViewController(withIdentifier: "AuthVC")
-            
-            // present the authVC
-            window?.makeKeyAndVisible()
-            window?.rootViewController?.present(vc, animated: true, completion: nil)
+            presentViewController(withStoryboardName: "Main", andId: "AuthVC")
         } else {
             print("Already has a user: \(Auth.auth().currentUser.debugDescription)")
             
         }
         
         return true
+    }
+    
+    /**
+     * present a view controller modelly in the app
+     */
+    func presentViewController(withStoryboardName name: String, andId id: String) {
+        // get the authVC ref
+        let storyBoard = UIStoryboard(name: name, bundle: Bundle.main)
+        let vc = storyBoard.instantiateViewController(withIdentifier: id)
+        
+        // present the authVC
+        window?.makeKeyAndVisible()
+        window?.rootViewController?.present(vc, animated: true, completion: nil)
     }
 
 

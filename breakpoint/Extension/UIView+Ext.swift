@@ -9,6 +9,8 @@
 import UIKit
 
 extension UIView {
+    
+    // MARK: view following the keyboard
     /**
      call this method to make the receiver to follow the keyboard on the y axis
      */
@@ -41,4 +43,28 @@ extension UIView {
             }, completion: nil)
         }
     }
+    
+    // MARK: view shaking self
+    /**
+     any view can call this method to shake itself as a error visual heads-up
+     */
+    func shakeSelf() {
+        UIView.animate(withDuration: 0.1) {
+            UIView.setAnimationRepeatCount(5)
+            self.frame.origin.x += 5
+            self.frame.origin.x -= 10
+            self.frame.origin.x += 5
+        }
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }

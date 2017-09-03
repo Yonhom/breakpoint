@@ -33,27 +33,38 @@ class LoginVC: UIViewController {
             isInProgress(inProgress: true)
             AuthService.instance.loginUser(withEmail: email, andPassword: password, completion: { (success, error) in
                 if success {
+                    
                     self.isInProgress(inProgress: false)
                     print("login first attempt successed!")
+                    // login successed, dismiss both auth and login vc
+                    self.dismissLoginAndAuthVC()
+                    
                 } else {
                     self.isInProgress(inProgress: true)
                     print("login first attempt failed, now trying to signing up...")
                     AuthService.instance.registerUser(withEmail: email, andPassword: password, completion: { (success, error) in
                         if success {
+                            
                             self.isInProgress(inProgress: true)
                             print("trying to login for the second time...")
+                            
                             AuthService.instance.loginUser(withEmail: email, andPassword: password, completion: { (success, error) in
                                 if success {
                                     self.isInProgress(inProgress: false)
                                     print("login second attempt successed!")
+                                    // dismiss auth and login vc
+                                    self.dismissLoginAndAuthVC()
                                 } else {
                                     self.isInProgress(inProgress: false)
                                     print("login second attempt failed!")
+                                    self.loginBtn.shakeSelf()
                                 }
                             })
                         } else {
                             self.isInProgress(inProgress: false)
                             print("signing up failed with log: \(error.debugDescription)")
+                            // shake the 'login' button
+                            self.loginBtn.shakeSelf()
                         }
                     })
                 }
@@ -61,8 +72,18 @@ class LoginVC: UIViewController {
             
         } else {
             print("Login failed! Please check your acount again!")
+            loginBtn.shakeSelf()
         }
         
+    }
+    
+    func dismissLoginAndAuthVC() {
+        // capture the presentingViewController's reference, so after the first vc is popped off
+        // and destroyed, the presentingVC can still be refered to pop itself off
+        let presentingVC = presentingViewController
+        dismiss(animated: true, completion: {
+            presentingVC?.dismiss(animated: true, completion: nil)
+        })
     }
     
     /**

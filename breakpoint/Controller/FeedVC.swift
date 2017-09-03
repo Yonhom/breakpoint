@@ -45,7 +45,10 @@ extension FeedVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "FeedCell") as? FeedCell {
-            cell.configureCell(message: feedMessages[indexPath.row])
+            let message = feedMessages[indexPath.row]
+            DataService.instance.getUsername(forUid: message.senderId, handler: { (email) in
+                cell.configureCell(withEmail: email, withMessage: message.content)
+            })
             return cell
         }
         

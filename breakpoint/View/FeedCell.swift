@@ -21,5 +21,10 @@ class FeedCell: UITableViewCell {
         username.text = message.senderId
         self.message.text = message.content
     }
+    
+    func configureCell(withEmail email: String, withMessage message: String) {
+        username.text = email
+        self.message.text = message
+    }
 
 }

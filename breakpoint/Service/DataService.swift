@@ -110,15 +110,32 @@ class DataService {
             for message in dataShot {
                 let content = message.childSnapshot(forPath: "message").value as! String
                 let senderId = message.childSnapshot(forPath: "senderId").value as! String
+                
                 let message = Message(content: content, senderId: senderId)
                 tempMessageArr.append(message)
             }
             
-            handler(tempMessageArr)
+            handler(tempMessageArr.reversed())
         }
         
         return feedBlockHandle
     }
+    
+    /**
+     * retrive a user's email address using uid
+     */
+    func getUsername(forUid uid: String, handler: @escaping (_ username: String) -> ()) {
+        REF_USERS.observeSingleEvent(of: .value) { (dataShot) in
+            guard let dataShot = dataShot.children.allObjects as? [DataSnapshot] else{return}
+            for user in dataShot {
+                if user.key == uid {
+                    handler(user.childSnapshot(forPath: "email").value as! String)
+                }
+            }
+        }
+    }
+    
+    
 }
 
 
